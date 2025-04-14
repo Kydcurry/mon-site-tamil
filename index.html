@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Liste de Phrases Français-Tamil</title>
+</head>
+<body>
+  <header>
+    <h1>Liste de Phrases Français-Tamil</h1>
+    <input type="text" id="searchInput" placeholder="Chercher une phrase..." />
+  </header>
+
+  <main>
+    <div class="content" id="phraseList">
+      <div class="phrase">
+        <p class="fr">Quel est votre nom ?</p>
+        <p class="ta">Ungal peyar enna ?</p>
+      </div>
+      <div class="phrase">
+        <p class="fr">Comment ça va ?</p>
+        <p class="ta">Eppadi irukkenga ?</p>
+      </div>
+      <div class="phrase">
+        <p class="fr">Merci beaucoup.</p>
+        <p class="ta">Romba nandri.</p>
+      </div>
+      <!-- Ajoutez plus de phrases ici -->
+    </div>
+  </main>
+
+  <script>
+    // Style généré via JavaScript
+    const style = document.createElement('style');
+    style.innerHTML = `
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f9;
+        color: #333;
+        margin: 0;
+        padding: 20px;
+      }
+      header {
+        text-align: center;
+        margin-bottom: 20px;
+      }
+      header h1 {
+        color: #4CAF50;
+        font-size: 2rem;
+      }
+      header input {
+        padding: 10px;
+        width: 80%;
+        max-width: 400px;
+        margin-top: 10px;
+        font-size: 1rem;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+      }
+      main {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      .content {
+        width: 100%;
+        max-width: 800px;
+      }
+      .phrase {
+        background-color: #fff;
+        padding: 15px;
+        margin: 10px 0;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      }
+      .phrase p {
+        margin: 5px 0;
+      }
+      .fr {
+        font-weight: bold;
+      }
+      .ta {
+        font-style: italic;
+        color: #4CAF50;
+      }
+    `;
+    document.head.appendChild(style);
+
+    // Fonction de recherche
+    document.getElementById('searchInput').addEventListener('input', function () {
+      const searchValue = this.value.toLowerCase();
+      const phrases = document.querySelectorAll('.phrase');
+      
+      phrases.forEach(phrase => {
+        const frenchText = phrase.querySelector('.fr').textContent.toLowerCase();
+        const tamilText = phrase.querySelector('.ta').textContent.toLowerCase();
+        
+        if (frenchText.includes(searchValue) || tamilText.includes(searchValue)) {
+          phrase.style.display = 'block';
+        } else {
+          phrase.style.display = 'none';
+        }
+      });
+    });
+  </script>
+</body>
+</html>
